@@ -1,0 +1,15 @@
+{
+  "name": "thermostat",
+  "version": "1.0.0",
+  "description": "A simple, test-driven, appliction to manage a thermostat.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^27.4.7"
+  }
+}
