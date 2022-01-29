@@ -43,6 +43,15 @@ describe('Thermostat', () => {
     expect(thermostat.getTemperature()).toEqual(32);
   });
 
+  it('returns power saving mode on', () => {
+    expect(thermostat.getPowerSavingMode()).toBe(true);
+  })
+
+  it('returns power saving mode off', () => {
+    thermostat.setPowerSavingMode(false);
+    expect(thermostat.getPowerSavingMode()).toBe(false);
+  })
+
   it('can reset the temperature back to the default of 20', () => {
     for (let i = 0; i < 5; i++) {
       thermostat.up();

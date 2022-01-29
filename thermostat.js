@@ -1,6 +1,11 @@
 class Thermostat {
+  #defaultTemp = 20;
+  #psmMaxTemp = 25;
+  #maxTemp = 32;
+  #minTemp = 10;
+
   constructor() {
-    this.temperature = 20;
+    this.temperature = this.#defaultTemp;
     this.powerSavingMode = true;
   }
 
@@ -9,22 +14,29 @@ class Thermostat {
   }
 
   up() {
-    if (this.powerSavingMode === true && this.temperature === 25) { return }
-    if (this.temperature === 32) { return }
+    if (this.powerSavingMode === true && this.temperature === this.#psmMaxTemp) { return; }
+    if (this.temperature === this.#maxTemp) { return; }
     this.temperature++;
   }
 
   down() {
-    if (this.temperature === 10) { return }
+    if (this.temperature === this.#minTemp) { return; }
     this.temperature--;
+  }
+
+  getPowerSavingMode() {
+    return this.powerSavingMode ? true : false;
   }
 
   setPowerSavingMode(state) {
     this.powerSavingMode = state;
+    if (state === true && this.temperature > this.#psmMaxTemp) {
+      this.temperature = this.#psmMaxTemp;
+    }
   }
 
   reset() {
-    this.temperature = 20;
+    this.temperature = this.#defaultTemp;
   }
 
   currentEnergyUsage() {
